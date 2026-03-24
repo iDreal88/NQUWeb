@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import { Menu, X, Globe, Search } from 'lucide-react';
+import { Menu, X, Globe, Search, Moon, Sun } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import nquLogo from '../assets/nqu_logo.png';
 import { useLanguage } from '../context/LanguageContext';
+import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
 
   const navLinks = [
     { name: t('nav.home'), href: 'https://www.nqu.edu.tw/' },
@@ -47,6 +49,17 @@ const Navbar = () => {
             
             {/* Standard Secondary Buttons (No Offset) */}
             <div className="flex items-center space-x-3 ml-6">
+              {/* Theme Toggle */}
+              <button 
+                onClick={toggleTheme}
+                className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-all relative group"
+              >
+                {theme === 'light' ? <Moon size={22} /> : <Sun size={22} />}
+                <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 px-3 py-1 bg-black/80 text-white text-[10px] font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                  {theme === 'light' ? 'DARK MODE' : 'LIGHT MODE'}
+                </span>
+              </button>
+
               <button 
                 onClick={toggleLanguage}
                 className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-all relative group"
@@ -56,6 +69,7 @@ const Navbar = () => {
                     {language === 'zh' ? 'SWITCH TO ENGLISH' : '切換至中文'}
                  </span>
               </button>
+              
               <button className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-all">
                  <Search size={20} />
               </button>
@@ -96,6 +110,13 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
+              <button 
+                onClick={toggleTheme}
+                className="w-full flex items-center justify-between px-6 py-4 rounded-2xl text-xl font-bold text-white hover:bg-nqu-orange/20"
+              >
+                <span>{theme === 'light' ? 'Dark Mode' : 'Light Mode'}</span>
+                {theme === 'light' ? <Moon size={24} /> : <Sun size={24} />}
+              </button>
               <button 
                 onClick={toggleLanguage}
                 className="w-full flex items-center justify-between px-6 py-4 rounded-2xl text-xl font-bold text-white hover:bg-white/10"

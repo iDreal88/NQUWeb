@@ -90,65 +90,96 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="relative z-20 py-24 bg-white dark:bg-slate-900 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Dual-Theme Stats Section */}
+      <section className="relative z-20 py-24 bg-white dark:bg-black overflow-hidden border-t-0 dark:border-t dark:border-white/10 transition-colors duration-500">
+        {/* Glow Effects (Dark Mode Only) */}
+        <div className="hidden dark:block absolute top-1/2 left-1/4 w-96 h-96 bg-nqu-purple/40 rounded-full blur-[100px] -translate-y-1/2"></div>
+        <div className="hidden dark:block absolute top-1/2 right-1/4 w-96 h-96 bg-nqu-orange/20 rounded-full blur-[100px] -translate-y-1/2"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, i) => (
               <motion.div 
                 key={stat.label}
                 {...fadeIn}
                 transition={{ delay: i * 0.1 }}
-                className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:border-nqu-orange/30 transition-all duration-500 shadow-sm hover:shadow-xl group"
+                className="p-8 rounded-[2rem] bg-slate-50 border-slate-100 border dark:border-white/10 dark:bg-white/5 dark:backdrop-blur-2xl hover:border-nqu-orange/30 dark:hover:border-nqu-orange/50 dark:hover:bg-white/10 transition-all duration-500 shadow-sm hover:shadow-xl dark:shadow-none dark:hover:shadow-[0_0_40px_rgba(230,126,34,0.2)] group relative overflow-hidden"
               >
-                <div className="text-nqu-orange mb-4 group-hover:scale-110 transition-transform duration-500">{stat.icon}</div>
-                <div className="text-4xl font-bold text-nqu-purple dark:text-white mb-2">{stat.value}</div>
-                <div className="text-slate-600 dark:text-slate-300 font-medium">{stat.label}</div>
+                <div className="hidden dark:block absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="text-nqu-orange mb-4 group-hover:scale-110 transition-transform duration-500 dark:drop-shadow-[0_0_10px_rgba(230,126,34,0.5)]">{stat.icon}</div>
+                <div className="text-4xl font-bold text-nqu-purple dark:text-white mb-2 font-display tracking-tight">{stat.value}</div>
+                <div className="text-slate-600 dark:text-slate-300 font-medium tracking-wide">{stat.label}</div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-24 bg-[#f1f5f9] dark:bg-slate-950 relative overflow-hidden">
+      {/* Dual-Theme About Section */}
+      <section className="py-24 md:py-32 bg-[#f1f5f9] dark:bg-gradient-to-b dark:from-black dark:via-[#0d0415] dark:to-black relative overflow-hidden transition-colors duration-500">
+        {/* Starfield / Grid Effect Background (Dark Mode) */}
+        <div className="hidden dark:block absolute inset-0 bg-[url('https://transparenttextures.com/patterns/stardust.png')] opacity-20 mix-blend-screen"></div>
+        <div className="hidden dark:block absolute top-0 right-0 w-[800px] h-[800px] bg-nqu-purple/20 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3"></div>
+        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col md:flex-row items-center gap-16">
-            <motion.div {...fadeIn} className="flex-1">
-              <span className="text-nqu-orange font-bold uppercase tracking-widest text-sm mb-4 block">{t('about.badge')}</span>
-              <h2 className="text-5xl font-display font-bold text-nqu-purple dark:text-white mb-8 leading-tight">{t('about.title')}</h2>
-              <p className="text-lg text-slate-700 dark:text-slate-300 mb-10 leading-relaxed">
+          <div className="flex flex-col md:flex-row items-center gap-16 md:gap-20">
+            <motion.div {...fadeIn} className="flex-1 relative">
+              <div className="hidden dark:block absolute -left-10 top-10 w-32 h-32 bg-nqu-orange/30 rounded-full blur-[50px]"></div>
+              
+              <span className="inline-block px-4 py-1 rounded-full bg-nqu-purple/10 dark:bg-nqu-purple/50 border border-nqu-purple/20 dark:border-nqu-purple text-nqu-purple dark:text-nqu-orange font-bold uppercase tracking-widest text-sm md:text-xs mb-6 dark:shadow-[0_0_20px_rgba(112,72,143,0.5)]">{t('about.badge')}</span>
+              <h2 className="text-5xl md:text-6xl font-display font-bold text-nqu-purple dark:text-white mb-8 leading-tight dark:drop-shadow-2xl">{t('about.title')}</h2>
+              <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 mb-10 leading-relaxed font-normal dark:font-light">
                 {t('about.description')}
               </p>
-              <div className="flex flex-col sm:flex-row gap-8">
-                  <a href="https://www.nqu.edu.tw/p/412-1000-842.php?Lang=zh-tw" target="_blank" rel="noopener noreferrer" className="px-10 py-5 bg-white text-nqu-purple font-bold rounded-2xl shadow-xl hover:bg-slate-50 transition-all duration-300">
-                    {t('about.button')}
+              <div className="flex flex-col sm:flex-row gap-6">
+                  {/* Light: Clean Button | Dark: Glowing Button */}
+                  <a href="https://www.nqu.edu.tw/p/412-1000-842.php?Lang=zh-tw" target="_blank" rel="noopener noreferrer" className="px-10 py-5 bg-white dark:bg-nqu-orange hover:bg-slate-50 dark:hover:bg-nqu-accent text-nqu-purple dark:text-white font-bold rounded-2xl shadow-xl dark:shadow-[0_0_30px_rgba(230,126,34,0.4)] transition-all duration-300 text-center flex items-center justify-center group overflow-hidden relative">
+                    <span className="relative z-10 flex items-center">{t('about.button')} <ArrowRight className="hidden dark:block ml-2 group-hover:translate-x-1 transition-transform" size={18} /></span>
+                    <div className="hidden dark:block absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                   </a>
               </div>
             </motion.div>
             <motion.div 
               {...fadeIn} 
               transition={{ delay: 0.3 }}
-              className="flex-1 relative"
+              className="flex-1 relative w-full"
             >
-              <div className="relative rounded-[40px] overflow-hidden shadow-2xl scale-105">
-                <img src={collabImage} alt="Students" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-nqu-purple/40 to-transparent"></div>
+              <div className="relative rounded-[40px] overflow-hidden shadow-2xl dark:shadow-[0_0_50px_rgba(112,72,143,0.3)] dark:border dark:border-white/10 group scale-105">
+                <div className="hidden dark:block absolute inset-0 bg-nqu-purple/20 group-hover:bg-transparent transition-colors duration-700 z-10 mix-blend-overlay"></div>
+                <img src={collabImage} alt="Students" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
+                <div className="hidden dark:block absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-20"></div>
+                
+                {/* Holographic UI Elements over image (Dark Mode Only) */}
+                <div className="hidden dark:flex absolute bottom-10 left-10 z-30 bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex items-center gap-4">
+                   <div className="w-12 h-12 rounded-full bg-nqu-orange flex items-center justify-center animate-pulse">
+                     <Globe2 className="text-white" size={24} />
+                   </div>
+                   <div>
+                     <div className="text-white font-bold tracking-wider text-sm uppercase">Global Reach</div>
+                     <div className="text-nqu-orange font-display font-bold text-xl">100%</div>
+                   </div>
+                </div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      <section className="py-24 bg-white dark:bg-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Dual-Theme News Section */}
+      <section className="py-24 md:py-32 bg-white dark:bg-black relative overflow-hidden dark:border-t dark:border-white/5 transition-colors duration-500">
+        <div className="hidden dark:block absolute bottom-0 left-0 w-full h-[500px] bg-gradient-to-t from-nqu-purple/20 to-transparent"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex justify-between items-end mb-16">
             <div>
-              <span className="text-nqu-orange font-bold uppercase tracking-widest text-sm mb-4 block">{t('news.badge')}</span>
-              <h2 className="text-5xl font-display font-bold text-nqu-purple dark:text-white">{t('news.title')}</h2>
+              {/* Badge: Simple Orange in Light, Hollow Glowing in Dark */}
+              <span className="inline-block dark:px-3 dark:py-1 dark:rounded-full bg-transparent dark:bg-white/5 border-none dark:border-solid border-white/10 text-nqu-orange font-bold uppercase tracking-widest text-sm dark:text-xs mb-4">{t('news.badge')}</span>
+              
+              {/* Title: Purple in Light, Silver Gradient in Dark */}
+              <h2 className="text-5xl md:text-6xl font-display font-bold text-nqu-purple dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-white dark:to-slate-400">{t('news.title')}</h2>
             </div>
-              <a href="https://www.nqu.edu.tw/p/402-1000-5-1.php?Lang=zh-tw" target="_blank" rel="noopener noreferrer" className="hidden md:flex items-center space-x-2 text-slate-600 dark:text-slate-300 font-bold hover:text-nqu-purple transition-colors">
-                <Calendar size={20} />
-                <span>{t('news.more')}</span>
+              <a href="https://www.nqu.edu.tw/p/402-1000-5-1.php?Lang=zh-tw" target="_blank" rel="noopener noreferrer" className="hidden md:flex items-center space-x-2 text-slate-600 dark:text-slate-300 font-bold hover:text-nqu-purple dark:hover:text-nqu-orange transition-colors group">
+                <Calendar size={20} className="dark:group-hover:animate-pulse" />
+                <span className="uppercase tracking-wider text-sm">{t('news.more')}</span>
               </a>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -160,16 +191,21 @@ const Home = () => {
                 rel="noopener noreferrer"
                 {...fadeIn}
                 transition={{ delay: i * 0.1 }}
-                className="group relative overflow-hidden rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:shadow-2xl transition-all duration-500 flex flex-col"
+                className="group relative overflow-hidden rounded-3xl dark:rounded-[2.5rem] bg-slate-50 dark:bg-white/5 dark:backdrop-blur-xl border border-slate-100 dark:border-white/10 hover:shadow-2xl dark:hover:border-nqu-purple/50 transition-all duration-500 flex flex-col dark:hover:-translate-y-2 dark:hover:shadow-[0_20px_50px_rgba(112,72,143,0.3)]"
               >
-                <div className="h-48 overflow-hidden">
-                   <img src={item.image} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt={item.title} />
+                <div className="h-48 dark:h-56 overflow-hidden relative">
+                   <div className="hidden dark:block absolute inset-0 bg-nqu-purple/20 group-hover:bg-transparent transition-colors duration-500 z-10 mix-blend-overlay"></div>
+                   <img src={item.image} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 dark:duration-700" alt={item.title} />
+                   <div className="hidden dark:block absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black to-transparent z-20"></div>
                 </div>
-                <div className="p-8">
-                  <h3 className="text-xl font-bold text-nqu-purple dark:text-white mb-4 line-clamp-2 h-14 group-hover:text-nqu-orange transition-colors duration-300">{item.title}</h3>
-                  <div className="flex justify-between items-center text-sm text-slate-500 dark:text-slate-400 font-medium font-display">
-                    <span>{item.date}</span>
-                    <span className="text-nqu-orange font-bold uppercase tracking-wider">{item.category}</span>
+                <div className="p-8 relative z-30 dark:-mt-6">
+                  {/* Category: Orange text in Light, Solid pill in Dark */}
+                  <span className="dark:inline-block dark:px-3 dark:py-1 dark:bg-nqu-orange dark:text-white dark:text-xs text-nqu-orange font-bold uppercase tracking-wider dark:rounded-full mb-4 dark:shadow-[0_0_15px_rgba(230,126,34,0.5)] flex justify-end dark:justify-start">{item.category}</span>
+                  
+                  <h3 className="text-xl font-bold text-nqu-purple dark:text-white mb-4 dark:mb-6 line-clamp-2 h-14 group-hover:text-nqu-orange transition-colors duration-300 dark:leading-snug">{item.title}</h3>
+                  <div className="flex justify-between items-center text-sm text-slate-500 dark:text-slate-400 font-medium font-display dark:group-hover:text-slate-200 transition-colors">
+                    <span className="flex items-center gap-2"><Calendar className="hidden dark:block" size={14}/> {item.date}</span>
+                    <ArrowRight size={16} className="hidden dark:block text-nqu-purple group-hover:text-nqu-orange group-hover:translate-x-1 transition-all" />
                   </div>
                 </div>
               </motion.a>
