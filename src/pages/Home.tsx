@@ -16,9 +16,9 @@ const Home = () => {
   ];
 
   const news = [
-    { title: '從課堂到社區、從文學到科技—華語文學系「AI繪紅樓·紅樓會AI」展覽...', date: 'March 15, 2026', category: '[華語文學系]', image: campusHero, href: 'https://www.nqu.edu.tw/p/403-1000-12.php?Lang=zh-tw' },
-    { title: '高粱田黑化像燒焦! 金門大學「空中救援」，幫農民應戰氣候變遷', date: 'March 10, 2026', category: '[國立金門大學]', image: globalImage, href: 'https://www.nqu.edu.tw/p/403-1000-12.php?Lang=zh-tw' },
-    { title: '「Autodesk創意設計競賽」 金大3學子勇奪金獎', date: 'March 8, 2026', category: '[國立金門大學]', image: collabImage, href: 'https://www.nqu.edu.tw/p/403-1000-12.php?Lang=zh-tw' },
+    { title: '從課堂到社區、從文學到科技—華語文學系「AI繪紅樓·紅樓會AI」展覽...', date: 'March 15, 2026', category: '[華語文學系]', image: campusHero, href: 'https://www.nqu.edu.tw/p/402-1000-5-1.php?Lang=zh-tw' },
+    { title: '高粱田黑化像燒焦! 金門大學「空中救援」，幫農民應戰氣候變遷', date: 'March 10, 2026', category: '[國立金門大學]', image: globalImage, href: 'https://www.nqu.edu.tw/p/402-1000-5-1.php?Lang=zh-tw' },
+    { title: '「Autodesk創意設計競賽」 金大3學子勇奪金獎', date: 'March 8, 2026', category: '[國立金門大學]', image: collabImage, href: 'https://www.nqu.edu.tw/p/402-1000-5-1.php?Lang=zh-tw' },
   ];
 
   const fadeIn = {
@@ -146,7 +146,7 @@ const Home = () => {
               <span className="text-nqu-orange font-bold uppercase tracking-widest text-sm mb-4 block">{t('news.badge')}</span>
               <h2 className="text-5xl font-display font-bold text-nqu-purple dark:text-white">{t('news.title')}</h2>
             </div>
-              <a href="https://www.nqu.edu.tw/p/403-1000-12.php?Lang=zh-tw" target="_blank" rel="noopener noreferrer" className="hidden md:flex items-center space-x-2 text-slate-600 dark:text-slate-300 font-bold hover:text-nqu-purple transition-colors">
+              <a href="https://www.nqu.edu.tw/p/402-1000-5-1.php?Lang=zh-tw" target="_blank" rel="noopener noreferrer" className="hidden md:flex items-center space-x-2 text-slate-600 dark:text-slate-300 font-bold hover:text-nqu-purple transition-colors">
                 <Calendar size={20} />
                 <span>{t('news.more')}</span>
               </a>
