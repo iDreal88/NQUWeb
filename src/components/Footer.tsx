@@ -1,26 +1,28 @@
 import { Mail, Phone, MapPin, Globe, Share2, MessageSquare, ExternalLink, ArrowUpRight } from 'lucide-react';
 import nquLogo from '../assets/nqu_logo.png';
+import { useLanguage } from '../context/LanguageContext';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
 
   const linkGroups = [
     {
-      title: 'Quick Links',
+      title: t('footer.quickLinks'),
       links: [
-        { name: 'Admissions', href: 'https://www.nqu.edu.tw/p/412-1000-881.php?Lang=zh-tw' },
-        { name: 'Academic Programs', href: 'https://www.nqu.edu.tw/p/412-1000-842.php?Lang=zh-tw' },
-        { name: 'International Center', href: 'https://oica.nqu.edu.tw/' },
-        { name: 'News & Events', href: 'https://www.nqu.edu.tw/p/403-1000-12.php?Lang=zh-tw' },
+        { name: t('footer.admissions'), href: 'https://www.nqu.edu.tw/p/412-1000-881.php?Lang=zh-tw' },
+        { name: t('footer.academics'), href: 'https://www.nqu.edu.tw/p/412-1000-842.php?Lang=zh-tw' },
+        { name: t('footer.international'), href: 'https://oica.nqu.edu.tw/' },
+        { name: t('footer.news'), href: 'https://www.nqu.edu.tw/p/403-1000-12.php?Lang=zh-tw' },
       ]
     },
     {
-      title: 'Resources',
+      title: t('footer.resources'),
       links: [
-        { name: 'Student Portal', href: 'https://select.nqu.edu.tw/' },
-        { name: 'E-Learning', href: 'http://ecampus.nqu.edu.tw/' },
-        { name: 'Library', href: 'https://library.nqu.edu.tw/' },
-        { name: 'Contact Us', href: 'https://www.nqu.edu.tw/p/412-1000-880.php?Lang=zh-tw' },
+        { name: t('footer.portal'), href: 'https://select.nqu.edu.tw/' },
+        { name: t('footer.elearning'), href: 'http://ecampus.nqu.edu.tw/' },
+        { name: t('footer.library'), href: 'https://library.nqu.edu.tw/' },
+        { name: t('footer.contact'), href: 'https://www.nqu.edu.tw/p/412-1000-880.php?Lang=zh-tw' },
       ]
     }
   ];
@@ -36,7 +38,7 @@ const Footer = () => {
               <img src={nquLogo} alt="NQU Logo" className="h-14 w-auto object-contain" />
             </a>
             <p className="text-lg text-slate-100 mb-10 leading-relaxed font-light">
-               National Quemoy University is committed to fostering a world-class educational environment that empowers students to lead and innovate on the global stage.
+               {t('footer.desc')}
             </p>
             <div className="flex space-x-6">
                {[Share2, MessageSquare, Globe, ExternalLink].map((Icon, i) => (
@@ -65,11 +67,11 @@ const Footer = () => {
              ))}
 
              <div className="flex-1 min-w-[200px]">
-                <h4 className="text-xl font-bold text-nqu-orange mb-10 uppercase tracking-widest text-xs">Contact NQU</h4>
+                <h4 className="text-xl font-bold text-nqu-orange mb-10 uppercase tracking-widest text-xs">{t('footer.contactNqu')}</h4>
                 <ul className="space-y-8">
                   <li className="flex items-start space-x-4 group">
                     <MapPin className="text-nqu-orange flex-shrink-0 mt-1" size={24} />
-                    <span className="text-slate-100 text-lg leading-relaxed group-hover:text-white transition-colors">No. 1, Daxue Rd., Jinning Township, Kinmen County, Taiwan</span>
+                    <span className="text-slate-100 text-lg leading-relaxed group-hover:text-white transition-colors">{t('footer.address')}</span>
                   </li>
                   <li className="flex items-center space-x-4 group">
                     <Phone className="text-nqu-orange flex-shrink-0" size={24} />
@@ -86,12 +88,12 @@ const Footer = () => {
 
         <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-slate-300 font-medium tracking-wide">
-            &copy; {currentYear} National Quemoy University. All Rights Reserved.
+            &copy; {currentYear} {t('footer.rights')}
           </p>
           <div className="flex space-x-10">
-            <a href="https://www.nqu.edu.tw/" className="text-slate-300 hover:text-white text-sm font-bold transition-colors">Privacy Policy</a>
-            <a href="https://www.nqu.edu.tw/" className="text-slate-300 hover:text-white text-sm font-bold transition-colors">Accessibility</a>
-            <a href="https://portal.nqu.edu.tw/" className="text-slate-300 hover:text-white text-sm font-bold transition-colors">Staff Login</a>
+            <a href="https://www.nqu.edu.tw/" className="text-slate-300 hover:text-white text-sm font-bold transition-colors">{t('footer.privacy')}</a>
+            <a href="https://www.nqu.edu.tw/" className="text-slate-300 hover:text-white text-sm font-bold transition-colors">{t('footer.accessibility')}</a>
+            <a href="https://portal.nqu.edu.tw/" className="text-slate-300 hover:text-white text-sm font-bold transition-colors">{t('footer.staff')}</a>
           </div>
         </div>
       </div>
