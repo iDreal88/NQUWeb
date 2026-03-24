@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nquweb.vercel.app/sitemap.xml
