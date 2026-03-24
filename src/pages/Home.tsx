@@ -48,7 +48,7 @@ const Home = () => {
             transition={{ duration: 1.2 }}
             className={`max-w-3xl pt-32`}
           >
-            <span className="inline-block px-4 py-1 rounded-full bg-nqu-orange/40 backdrop-blur-md border border-nqu-orange/50 text-white text-sm font-bold uppercase tracking-widest mb-6">
+            <span className="inline-block px-4 py-1 rounded-full bg-nqu-orange/60 backdrop-blur-lg border border-nqu-orange shadow-lg text-white text-sm font-bold uppercase tracking-widest mb-6">
               {t('hero.badge')}
             </span>
             <h1 className={`font-display font-bold leading-tight mb-8 ${language === 'en' ? 'text-5xl md:text-7xl' : 'text-6xl md:text-8xl'}`}>
@@ -59,7 +59,7 @@ const Home = () => {
               {t('hero.description')}
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-              <a href="https://www.nqu.edu.tw/p/412-1000-881.php?Lang=zh-tw" target="_blank" rel="noopener noreferrer" className="px-10 py-5 bg-nqu-orange hover:bg-nqu-accent text-nqu-purple font-bold rounded-2xl shadow-2xl hover:shadow-nqu-orange/20 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center">
+              <a href="https://www.nqu.edu.tw/p/412-1000-881.php?Lang=zh-tw" target="_blank" rel="noopener noreferrer" className="px-10 py-5 bg-nqu-orange hover:bg-nqu-accent text-white font-bold rounded-2xl shadow-2xl hover:shadow-nqu-orange/20 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center">
                 {t('hero.apply')} <ArrowRight className="ml-2" size={20} />
               </a>
               <a href="https://www.nqu.edu.tw/p/412-1000-842.php?Lang=zh-tw" target="_blank" rel="noopener noreferrer" className="px-10 py-5 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white font-semibold rounded-2xl border border-white/20 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center">
@@ -75,7 +75,7 @@ const Home = () => {
         </div>
 
         {/* WELCOME TO NQU Ticker */}
-        <div className="absolute bottom-0 w-full bg-nqu-orange py-4 overflow-hidden z-20 shadow-2xl">
+        <div className="absolute bottom-0 w-full bg-nqu-orange py-4 overflow-hidden z-20 shadow-2xl border-t border-white/20">
           <motion.div 
             animate={{ x: [0, -1000] }}
             transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
@@ -114,14 +114,14 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col md:flex-row items-center gap-16">
             <motion.div {...fadeIn} className="flex-1">
-              <span className="text-nqu-orange font-bold uppercase tracking-widest text-sm mb-4 block">Academic Excellence</span>
-              <h2 className="text-5xl font-display font-bold text-nqu-purple dark:text-white mb-8 leading-tight">A Global Perspective in <br /> Every Department</h2>
+              <span className="text-nqu-orange font-bold uppercase tracking-widest text-sm mb-4 block">{t('about.badge')}</span>
+              <h2 className="text-5xl font-display font-bold text-nqu-purple dark:text-white mb-8 leading-tight">{t('about.title')}</h2>
               <p className="text-lg text-slate-700 dark:text-slate-300 mb-10 leading-relaxed">
-                NQU provides a unique cultural and academic environment. Located at the intersection of history and modern development, our students benefit from a multi-disciplinary approach to learning.
+                {t('about.description')}
               </p>
               <div className="flex flex-col sm:flex-row gap-8">
                   <a href="https://www.nqu.edu.tw/p/412-1000-842.php?Lang=zh-tw" target="_blank" rel="noopener noreferrer" className="px-10 py-5 bg-white text-nqu-purple font-bold rounded-2xl shadow-xl hover:bg-slate-50 transition-all duration-300">
-                    EXPLORE DEPARTMENTS
+                    {t('about.button')}
                   </a>
               </div>
             </motion.div>

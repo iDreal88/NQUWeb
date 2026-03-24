@@ -32,6 +32,10 @@ const translations = {
     'cta.description': '國立金門大學為來自世界各地的國際學生提供支持。加入我們，發現您的潛力。',
     'cta.center': '國際事務中心',
     'cta.scholarship': '獎學金資訊',
+    'about.badge': '學術卓越',
+    'about.title': '各院系的全球視野',
+    'about.description': '金門大學提供獨特的文化與學術環境。位於歷史與現代發展的交匯點，我們的學生受益於跨學科的學習方式，培養國際競爭力。',
+    'about.button': '探索院系',
   },
   en: {
     'nav.home': 'NQU Home',
@@ -56,6 +60,10 @@ const translations = {
     'cta.description': 'National Quemoy University provides a supportive environment for international students from all corners of the globe. Join us and discover your potential.',
     'cta.center': 'INTERNATIONAL CENTER',
     'cta.scholarship': 'SCHOLARSHIP INFO',
+    'about.badge': 'ACADEMIC EXCELLENCE',
+    'about.title': 'A Global Perspective in Every Department',
+    'about.description': 'NQU provides a unique cultural and academic environment. Located at the intersection of history and modern development, our students benefit from a multi-disciplinary approach to learning.',
+    'about.button': 'EXPLORE DEPARTMENTS',
   }
 };
 
